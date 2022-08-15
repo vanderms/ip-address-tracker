@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as L from 'leaflet';
+import ipRegex from 'ip-regex';
 
 const $ = (selector) => {
   return document.querySelector(selector);
@@ -43,12 +44,17 @@ $('.ip-tracker-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const input = $('#form-component-input');
   const submit = $('.form-submit-btn');
-  submit.disabled = true;
 
-  updateApp(input.value).then(() => {
-    input.value = '';
-    submit.disabled = false;
-  });
+  if (ipRegex().test(input.value)) {
+    submit.disabled = true;
+    updateApp(input.value).then(() => {
+      input.value = '';
+      submit.disabled = false;
+    });
+  } else {
+    alert('invalid ip value');
+  }
+
 })
 
 updateApp();

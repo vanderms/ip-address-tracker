@@ -23,7 +23,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const fetchData = async (ip) => {
   const URL = ip ? `/api?IP=${ip}` : '/api';
-  const response = await axios.get(URL);
+  const response = await axios.get(URL).catch(e => console.log(e.message));
   return response.data;
 }
 
@@ -47,14 +47,16 @@ $('.ip-tracker-form').addEventListener('submit', (e) => {
 
   if (ipRegex().test(input.value)) {
     submit.disabled = true;
-    updateApp(input.value).then(() => {
-      input.value = '';
-      submit.disabled = false;
-    });
+    updateApp(input.value)
+      .then(() => {
+        input.value = '';
+      })
+      .finally(() => {
+        submit.disabled = false;
+      })
   } else {
     alert('invalid ip value');
   }
-
 })
 
 updateApp();

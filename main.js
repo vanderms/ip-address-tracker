@@ -39,8 +39,6 @@ const updateApp = async (ip) => {
   })
 }
 
-
-
 $('.ip-tracker-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const input = $('#form-component-input');
@@ -52,3 +50,5 @@ $('.ip-tracker-form').addEventListener('submit', (e) => {
     submit.disabled = false;
   });
 })
+
+updateApp();

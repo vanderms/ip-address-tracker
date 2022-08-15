@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   
   res.json({
-    ip: req.headers['client-ip']
+    ip: req.headers['x-nf-client-connection-ip']
   })
 })
 

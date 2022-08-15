@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   res.json({
     ip: ip,
     params: req.query,
-    key: process.env.API_KEY
+    key: ''
   })
 })
 

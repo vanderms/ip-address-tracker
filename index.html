@@ -11,6 +11,9 @@
     rel="stylesheet">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
   <link rel="stylesheet" href="scss/styles.scss">
 
   <title>Frontend Mentor | IP Address Tracker</title>
@@ -34,24 +37,29 @@
         <ul class="ip-data-list">
           <li class="ip-data">
             <span class="body-sm">IP Address</span>
-            <strong class="headline-md"></strong>
+            <strong class="headline-md query-ip"></strong>
           </li>
           <li class="ip-data">
             <span class="body-sm">Location</span>
-            <strong class="headline-md"></strong>
+            <strong class="headline-md query-location"></strong>
           </li>
           <li class="ip-data">
             <span class="body-sm">Timezone</span>
-            <strong class="headline-md"></strong>
+            <strong class="headline-md query-timezone"></strong>
           </li>
           <li class="ip-data">
             <span class="body-sm">ISP</span>
-            <strong class="headline-md"></strong>
+            <strong class="headline-md query-isp"></strong>
           </li>
         </ul>
       </div>
     </section>
+    <section class="map-section">
+      <h2 class="sr-only">Map</h2>
+      <div id="map">
 
+      </div>
+    </section>
   </main>
   <script type='module' src="main.js"></script>
 </body>

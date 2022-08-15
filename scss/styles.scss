@@ -138,6 +138,23 @@ $neutral-950: #000;
     background-size: contain;
     background-position: center;
   }
+
+  &:disabled::before {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(/images/spinner.svg);
+    animation: spin 1.2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .primary-textfield {
@@ -260,7 +277,7 @@ $neutral-950: #000;
 
 .map-section #map {
   width: 100%;
-  height: calc(100vh - 18.75rem); 
+  height: calc(100vh - 18.75rem);
   pointer-events: none;
 
   @include media(xl) {

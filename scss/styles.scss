@@ -1,0 +1,222 @@
+@use 'sass:math';
+@use 'sass:map';
+
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  font-style: normal;
+  line-height: 100%;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+$breakpoints: (
+  sm: 22rem,
+  md: 45rem,
+  xl: 74rem,
+);
+
+$neutral: #fff;
+$neutral-800: #2C2C2C;
+$neutral-500: #2C2C2C80;
+$neutral-950: #000;
+
+
+@mixin media($size) {
+  $breakpoint: map.get($breakpoints, $size);
+
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  width: 87.2%;
+  max-width: 69.375rem;
+  margin-inline: auto;
+}
+
+.headline-xl {
+  font-weight: 500;
+  font-size: 1.625rem;
+  line-height: 1.875rem;
+  letter-spacing: -0.232143px;
+  color: $neutral;
+
+  @include media(xl) {
+    font-size: 2rem;
+    line-height: 1.875rem;
+    letter-spacing: -0.285714px;
+  }
+}
+
+.headline-md {
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.178571px;
+  color: $neutral-800;
+
+  @include media(xl) {
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+    letter-spacing: -0.232143px;
+  }
+}
+
+.body-md {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: $neutral-800;
+}
+
+.body-sm {
+  font-weight: 700;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  color: $neutral-500;
+  letter-spacing: 1.45833px;
+  text-transform: uppercase;
+
+  @include media(md) {
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+    letter-spacing: 1.75px;
+  }
+}
+
+.primary-button {
+  background: $neutral-950;
+  width: 3.625rem;
+  height: 3.625rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0px 0.9375rem 0.9375rem 0px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 11px;
+    height: 14px;
+    background-image: url(/images/icon-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+.primary-textfield {
+  background-color: $neutral;
+  height: 58px;
+  width: 100%;
+  border-radius: 0.9375rem 0px 0px 0.9375rem;
+  border: none;
+  padding-inline: 1.5rem;
+
+  &::placeholder {
+
+    font-size: 0.75rem;
+
+    @include media(xl) {
+      font-size: 1.125rem;
+      line-height: 1.3125rem;
+      color: $neutral-500;
+    }
+  }
+}
+
+.ip-tracker-form {
+  display: grid;
+  grid-template-columns: 1fr 3.625rem;
+  box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.0983665);
+  border-radius: 0.9375rem;
+
+  max-width: 34.6875rem;
+  margin-inline: auto;
+}
+
+.header {
+  width: 100%;
+  height: 18.75rem;
+  position: relative;
+  padding-top: 1.625rem;
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .pattern-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .headline-xl {
+    text-align: center;
+  }
+
+  .ip-tracker-form {
+    margin-top: 1.8125rem;
+  }
+
+  .ip-data-list {
+    margin-top: 1.5rem;
+    background-color: $neutral;
+    box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.0983665);
+    border-radius: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .ip-data{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4375rem;
+    justify-content: center;
+    text-align: center;
+  }
+  
+}
